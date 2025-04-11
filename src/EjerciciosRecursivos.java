@@ -18,7 +18,6 @@ public class EjerciciosRecursivos {
         if (numero < 10) {
             return numero;
         }
-        
         return (numero % 10) + sumaDigitos(numero / 10);
     }
 
@@ -28,7 +27,26 @@ public class EjerciciosRecursivos {
         }
         return n + sumaConsecutivos(n - 1);
     }
+
+    public static void imprimirDescendente(int n1) {
+        if (n1 < 1) {
+            return; // Caso base: no se imprime nada si n < 1
+        }
+
+        System.out.print(n1 + " ");
+        imprimirDescendente(n1 - 1); // Llamada recursiva con n - 1
+    }
+
+    public static int reverso(int n) {
+        return reversoHelper(n, 0);
+    }
+
+    private static int reversoHelper(int n, int acumulador) {
+        if (n == 0) {
+            return acumulador;
+        }
+
+        int digito = n % 10;
+        return reversoHelper(n / 10, acumulador * 10 + digito);
+    }
 }
-
-
-
